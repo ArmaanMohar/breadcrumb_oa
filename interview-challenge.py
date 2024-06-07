@@ -2,6 +2,27 @@ from itertools import combinations
 import sys
 import re
 
+"""
+For processing the large file, we should consider using parallel computing techniques, such as threading or leveraging big data technologies like Hadoop
+
+Time Complexity: O(n^4)
+Space Complexity: O(n) 
+
+volume_of_tetrahedron:
+
+Time Complexity: O(1) because the operations to calculate the volume (vector subtractions, cross product, and dot product) are all constant time operations.
+Space Complexity: O(1) because it only uses a fixed amount of space for storing vectors and intermediate results.
+read_points_from_file:
+
+Time Complexity: O(n) where n is the number of lines in the file. Each line is processed once.
+Space Complexity: O(n) because it stores all the points read from the file in a list.
+find_smallest_tetrahedron_indices:
+
+Time Complexity: O(C(n, 4)) * O(volume_of_tetrahedron) = O(n^4), since it iterates over all possible combinations of 4 points out of n, and for each combination, it calls volume_of_tetrahedron.
+Space Complexity: O(1) as it only uses a fixed amount of additional space for storing intermediate results like the smallest volume and corresponding indices.
+
+"""
+
 def volume_of_tetrahedron(p1, p2, p3, p4):
     """
     Calculates the volume of a tetrahedron formed by four points using the scalar triple product formula.
